@@ -154,7 +154,7 @@ BOOL PeLdrProcessIAT(DWORD dwImageBase)
 				else {
 					pImportByName = (PIMAGE_IMPORT_BY_NAME)
 						(dwImageBase + pThunkDataOrig->u1.AddressOfData);
-					pThunkData->u1.Function = (DWORD) GetProcAddress(hMod, (LPCSTR) pImportByName->Name);
+					//pThunkData->u1.Function = (DWORD) GetProcAddress(hMod, (LPCSTR) pImportByName->Name);
                     FakeAddress(pThunkData,
                                 (DWORD) GetProcAddress(hMod, (LPCSTR) pImportByName->Name),
                                 (LPCSTR) pImportByName->Name);
