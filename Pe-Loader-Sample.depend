@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1495118893 source:z:\pe-loader-sample-master\src\main.cpp
+	"PeLdr.h"
+	"Debug.h"
+
+1495109949 z:\pe-loader-sample-master\src\peldr.h
+	<tchar.h>
+	<windows.h>
+	<winnt.h>
+
+1495111878 z:\pe-loader-sample-master\src\debug.h
+	<stdio.h>
+
+1495113510 source:z:\pe-loader-sample-master\src\peldr.cpp
+	"PeLdr.h"
+	"Debug.h"
+	"PEB.h"
+
+1495112234 z:\pe-loader-sample-master\src\peb.h
+
+1495214197 source:g:\pe-loader-sample-master\src\peldr.cpp
+	"PeLdr.h"
+	"Debug.h"
+	"PEB.h"
+
+1495800808 g:\pe-loader-sample-master\src\peldr.h
+	<tchar.h>
+	<windows.h>
+	<winnt.h>
+
+1495812962 g:\pe-loader-sample-master\src\debug.h
+	<stdio.h>
+
+1495345496 g:\pe-loader-sample-master\src\peb.h
+
+1495212184 source:g:\pe-loader-sample-master\src\main.cpp
+	"PeLdr.h"
+	"Debug.h"
+
+1495864290 source:g:\pe-loader-sample-master\src\main.c
+	"PeLdr.h"
+	"Debug.h"
+	"FakeIAT.h"
+
+1495871902 source:g:\pe-loader-sample-master\src\peldr.c
+	"PeLdr.h"
+	"Debug.h"
+	"PEB.h"
+	"FakeIAT.h"
+
+1495632521 g:\pe-loader-sample-master\src\fakeiat.h
+	<windows.h>
+
+1495349537 source:g:\pe-loader-sample-master\src\fakefunction.c
+	<windows.h>
+
+1495868118 source:g:\pe-loader-sample-master\src\fakeiat.c
+	"FakeIAT.h"
+
