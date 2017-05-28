@@ -11,7 +11,7 @@ typedef struct _UNICODE_STR
 } UNICODE_STR, *PUNICODE_STR;
 
 // WinDbg> dt -v ntdll!_LDR_DATA_TABLE_ENTRY
-//__declspec( align(8) ) 
+//__declspec( align(8) )
 typedef struct _LDR_DATA_TABLE_ENTRY
 {
 	//LIST_ENTRY InLoadOrderLinks; // As we search from PPEB_LDR_DATA->InMemoryOrderModuleList we dont use the first entry.
@@ -48,6 +48,13 @@ typedef struct _PEB_FREE_BLOCK // 2 elements, 0x8 bytes
    DWORD dwSize;
 } PEB_FREE_BLOCK, * PPEB_FREE_BLOCK;
 
+typedef struct _RTL_USER_PROCESS_PARAMETERS {
+  BYTE           Reserved1[16];
+  PVOID          Reserved2[10];
+  UNICODE_STR ImagePathName;
+  UNICODE_STR CommandLine;
+} RTL_USER_PROCESS_PARAMETERS, *PRTL_USER_PROCESS_PARAMETERS;
+
 // struct _PEB is defined in Winternl.h but it is incomplete
 // WinDbg> dt -v ntdll!_PEB
 typedef struct __PEB // 65 elements, 0x210 bytes
@@ -59,7 +66,7 @@ typedef struct __PEB // 65 elements, 0x210 bytes
    LPVOID lpMutant;
    LPVOID lpImageBaseAddress;
    PPEB_LDR_DATA pLdr;
-   LPVOID lpProcessParameters;
+   PRTL_USER_PROCESS_PARAMETERS lpProcessParameters;
    LPVOID lpSubSystemData;
    LPVOID lpProcessHeap;
    PRTL_CRITICAL_SECTION pFastPebLock;
@@ -125,4 +132,10 @@ typedef struct
 	WORD	type:4;
 } IMAGE_RELOC, *PIMAGE_RELOC;
 
+unsigned long __readfsdword(const unsigned long Offset)
+{
+    unsigned long value;
+    __asm__ __volatile__("movl %%fs:%a[Offset], %k[value]" : [value] "=r" (value) : [Offset] "ir" (Offset));
+    return value;
+}
 #endif
